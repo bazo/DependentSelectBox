@@ -51,7 +51,6 @@ jQuery.extend({
                                 sendValues[name] = values[i].value;
                             }
                         }
-                        console.log(sendValues);
                         $.ajax({
                             url: form.attr('action'),
                             data: sendValues,
