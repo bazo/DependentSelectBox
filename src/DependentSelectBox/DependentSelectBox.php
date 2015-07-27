@@ -305,7 +305,7 @@ class DependentSelectBox extends SelectBox {
 	 * @param Form $form Form with values
 	 */
 	protected function setItemsFromCallback($form) {
-		$data = $this->dataCallback->invoke($form, $this);
+		$data = $this->dataCallback->invoke($form, $this, $this->parents);
 		if(!is_array($data))
 			throw new InvalidArgumentException("Data must be array !");
 		$this->setItems($data);
