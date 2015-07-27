@@ -27,9 +27,6 @@ jQuery.extend({
             $.dependentselectbox.hideSubmits();
             $(document).on('change', function (e) {
                     if ($(e.target).is('.' + $.dependentselectbox.controlClass)) {
-                        // Nette form validation
-                        button = document.getElementById((e.currentTarget.activeElement.id) + $.dependentselectbox.buttonSuffix);
-                        button.form["nette-submittedBy"] = button;
                         // ----
                         var el = $('#' + (e.currentTarget.activeElement.id) + $.dependentselectbox.buttonSuffix);
                         //el.click();
