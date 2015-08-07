@@ -1,5 +1,5 @@
 {
-	"name": "oaki/dependentselectbox",
+	"name": "bazo/dependentselectbox",
 	"type": "library",
 	"description": "Selectbox whose options are depended on another selectbox. Library for Nette Framework",
 	"keywords": ["nette", "selectbox"],
@@ -8,6 +8,9 @@
 	"authors": [
 	{
 		"name": "Daniel Robenek"
+	},
+		{
+		"name": "Martin Bažík"
 	}
 	],
 	"require": {
