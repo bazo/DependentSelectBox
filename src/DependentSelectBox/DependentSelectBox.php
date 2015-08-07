@@ -120,6 +120,11 @@ class DependentSelectBox extends SelectBox {
 	 * @param boolean $refreshTree Remake tree of components? (false only for internal system)
 	 */
 	public function setValue($value, $refreshTree = true) {
+		
+		if(empty($value)) {
+			return;
+		}
+		
 		if($value !== null && !$this->hasEmptyValue() && $this->hasAnyParentEmptyValue()) {
 			throw new LogicException("Cant set value of dependent component when parent have no value ! (Control: '$this->name')");
 		}
