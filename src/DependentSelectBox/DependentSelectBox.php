@@ -68,7 +68,8 @@ class DependentSelectBox extends SelectBox
 	public function __construct($label, $parents, $dataCallback)
 	{
 		parent::__construct($label, null, null);
-		$this->dataCallback	 = new \Nette\Callback($dataCallback);
+		//$this->dataCallback	 = new \Nette\Callback($dataCallback);
+		$this->dataCallback	 = $dataCallback;
 		if (!is_array($parents))
 			$parents			 = ($parents === null) ? array() : array($parents);
 		$this->parents		 = $parents;
@@ -351,7 +352,9 @@ class DependentSelectBox extends SelectBox
 	 */
 	protected function setItemsFromCallback($form)
 	{
-		$data = $this->dataCallback->invoke($form, $this, $this->parents);
+		$cb = new \Nette\Callback($this->dataCallback);
+		$data = $cb->invoke($form, $this, $this->parents);
+		//$data = $this->dataCallback->invoke($form, $this, $this->parents);
 		if (!is_array($data))
 			throw new InvalidArgumentException("Data must be array !");
 		$this->setItems($data);
