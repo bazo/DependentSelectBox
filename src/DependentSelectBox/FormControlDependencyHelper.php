@@ -93,7 +93,7 @@ class FormControlDependencyHelper extends Object {
 	 */
 	public function addOnChangeCallback($callback) {
 		$this->createButton();
-		$this->button->onClick[] = new \Nette\Callback($callback);
+		$this->button->onClick[] = $callback;
 	}
 
 

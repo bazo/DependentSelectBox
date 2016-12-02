@@ -203,7 +203,7 @@ class DependentSelectBox extends SelectBox
 	{
 		$params				 = func_get_args();
 		unset($params[0]);
-		$this->onSubmit[]	 = array(new \Nette\Callback($callback), $params);
+		$this->onSubmit[]	 = [$callback, $params];
 		return $this;
 	}
 
@@ -352,9 +352,7 @@ class DependentSelectBox extends SelectBox
 	 */
 	protected function setItemsFromCallback($form)
 	{
-		$cb = new \Nette\Callback($this->dataCallback);
-		$data = $cb->invoke($form, $this, $this->parents);
-		//$data = $this->dataCallback->invoke($form, $this, $this->parents);
+		$data = call_user_func($this->dataCallback, $form, $this, $this->parents);
 		if (!is_array($data))
 			throw new InvalidArgumentException("Data must be array !");
 		$this->setItems($data);
